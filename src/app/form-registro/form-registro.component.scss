@@ -1,0 +1,29 @@
+.center{
+  display: flex;
+  justify-content: center;
+}
+::ng-deep{
+  .mat-form-field-infix{
+      display: flex!important;
+  }
+}
+.mat-form-field-infix{
+  display: flex!important;
+}
+
+.tittle{
+  text-align: center;
+  margin-left: 15%;
+  color: #626567;
+}
+
+.d-flex justify-content-center{
+  color: #626567;
+}
+
+
+.navbar-brand{
+  text-align: center;
+  margin-left: 25%;
+  color: white;
+}

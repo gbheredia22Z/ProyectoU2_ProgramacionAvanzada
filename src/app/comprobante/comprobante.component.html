@@ -1,0 +1,32 @@
+<html>
+
+<nav class="navbar" style="background-color: #626567">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logox2reno.png" alt="Bootstrap" width="200" height="120"> <b>ORION COMPANY - ESCUELA DE
+                CONDUCCIÓN </b>
+        </a>
+    </div>
+</nav>
+<body>
+    <div class="card shadow p-3 mb-5 bg-white rounded" >
+        <div class="card-body " style="background-color: #F2F3F4 ;">
+            <h1 > Comprobante </h1> <br>
+            <h6> Estimado usuario, mediante el presente formulario subir el comprobante de pago, para
+                poder verificarlo y aceptar/rechazar según sea el caso. </h6>
+            <br><br>
+            <div class="form-group">
+                <label for="cedula"> <b>Cédula</b></label><br><br>
+                <input class="form-control" type="text" [(ngModel)]="cedula" name="cedula" style="margin-bottom: 20px;">
+            </div> <br>
+            <div class="input-group">
+                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload" (change)="uploadImage($event)">
+                <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04"></button>
+            </div> <br>
+            <button type="submit" id="btn" class="btn" (click)="navegar()" mat-raised-button color="#626567;">ENVIAR</button>
+        </div>
+    </div>
+</body>
+
+</html>

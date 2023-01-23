@@ -1,0 +1,69 @@
+<html>
+  <nav class="navbar navbar-expand-lg" style="background-color: #626567">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/logox2reno.png" alt="Bootstrap" width="200" height="120">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+   <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="comprobantes-aceptados" >Comprobantes Aprobados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="comprobante">Comprobantes Pendientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="inscripciones-aceptadas">Estudiantes Aprobados </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="Registro">Estudiantes Pendientes</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>
+<div class="row justify-content-center">
+  <div>
+    <table class="table table-striped"  >
+      <thead class="table align-middle" style="background-color: #626567; color: white;">
+        <th scope="col">#</th>
+        <th scope="col"> Nombre </th>
+        <th scope="col"> Cédula</th>
+        <th scope="col"> Correo</th>
+        <th scope="col"> Curso</th>
+        <th scope="col"> Estado Inscripción</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of datos; let i = index">
+          <td scope="row" style="font-weight:bold; color: black;">
+            {{ i+1 }}
+          </td>
+          <td scope="row" style="font-weight:bold; color: #626567;;">
+            {{ data.nombre_estudiante}}
+          </td>
+          <td scope="row" style="font-weight:bold; color: #626567;">
+            {{ data.cedula_estudiante}}
+          </td>
+          <td scope="row" style="font-weight:bold; color: #626567;">
+            {{ data.correo_estudiante}}
+          </td>
+          <td scope="row" style="font-weight:bold; color: #626567;;">
+            {{ data.curso_estudiante}}
+          </td>
+          <td scope="row" style="font-weight:bold; color: #626567;">
+            {{ data.estado_inscripcion}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex flex-row-reverse">
+      <div class="p-2">Mostrando {{ datos.length }} registros</div>
+    </div>
+  </div>
+</div>
+</html>
