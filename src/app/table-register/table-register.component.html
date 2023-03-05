@@ -82,7 +82,7 @@
                   type="button"
                   class="btn btn-primary m-2"
                   style="width: 150px"
-                  (click)="enviar(row._id, 'APROBADO')"
+                  (click)="enviar(row._id, 'APROBADO', row.correo_estudiante)"
                 >
                   Aceptar
                 </button>
@@ -90,7 +90,7 @@
                   type="button"
                   class="btn btn-danger m-2"
                   style="width: 150px"
-                  (click)="enviar(row._id, 'RECHAZADO')"
+                  (click)="enviar(row._id, 'RECHAZADO', row.correo_estudiante)"
                 >
                   Rechazar
                 </button>
@@ -104,7 +104,7 @@
   <button
       type="button"
       class="btn "
-      style="width: 150px ; background-color: #626567; color:white" 
+      style="width: 150px ; background-color: #626567; color:white"
       (click)="navegar()"> Siguiente</button>
   <div class="d-flex flex-row-reverse">
     <div class="p-2">Mostrando {{ datos.length }} registros</div>
