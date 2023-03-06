@@ -34,6 +34,7 @@
       <thead class="table align-middle" style="background-color: #626567; color: white;">
         <th scope="col">#</th>
         <th scope="col"> Documento </th>
+        <th scope="col"> Correo </th>
         <th scope="col"> Acciones</th>
       </thead>
       <tbody>
@@ -47,11 +48,28 @@
             </div>
           </td>
           <td>
+            <div class="d-flex justify-content-center">
+              {{ data.correo_estudiante }}
+            </div>
+          </td>
+          <td>
             <div>
-              <button type="button" class="btn btn-primary" style="width: 150px; margin-right:50px"
-                (click)="enviar(data._id, 'APROBADO')"> Aceptar </button>
-              <button type="button" class="btn btn-danger" style="width: 150px;"
-                (click)="enviar(data._id, 'RECHAZADO')"> Rechazar </button>
+              <button
+                type="button"
+                class="btn btn-primary m-2"
+                style="width: 150px"
+                (click)="enviar(data._id, 'APROBADO', data.correo_estudiante)"
+              >
+                Aceptar
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger m-2"
+                style="width: 150px"
+                (click)="enviar(data._id, 'RECHAZADO', data.correo_estudiante)"
+              >
+                Rechazar
+              </button>
             </div>
           </td>
         </tr>
@@ -62,6 +80,4 @@
     </div>
   </div>
 </div>
-
-
 </html>

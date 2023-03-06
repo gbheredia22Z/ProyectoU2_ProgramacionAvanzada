@@ -10,7 +10,7 @@ import { EstudianteService } from '../estudiante.service';
 export class TableComprobantComponent implements OnInit {
   datos: any[] = [];
   constructor(private http: HttpClient, private estudianteService: EstudianteService,  private router: Router) {
-    this.http.get<any[]>('http://44.202.153.93:8080/api/estudiante/comprobante/').subscribe(data => {
+    this.http.get<any[]>('http://52.91.172.28:8080/api/estudiante/comprobante/').subscribe(data => {
       this.datos = data;
     });
     console.log(this.datos);
@@ -18,9 +18,32 @@ export class TableComprobantComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviar(_id: string, estado_comprobante: string){
+  enviar(_id: string, estado_comprobante: string, correo: string){
     this.estudianteService.updateEstadoComprobante(_id, estado_comprobante).subscribe(res=>{
-      location.reload();
+      if(estado_comprobante == 'APROBADO'){
+        const to = ""+correo+"";
+        const subject = "Aprobación de comprobante";
+        const message = "Su comprobante a sido aceptado, gracias por confiar en nosotros";
+
+        this.estudianteService.enviarcorreo(to, subject, message).subscribe(
+          res=>{
+            location.reload();
+          },(err) => console.log(err)
+        );
+      }else{
+        const to = ""+correo+"";
+        const subject = "Rechazo de comprobante";
+        const message = "Su comprobante a sido rechazado";
+
+        this.estudianteService.enviarcorreo(to, subject, message).subscribe(
+          res=>{
+            location.reload();
+          },(err) => console.log(err)
+        );
+      }
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     },
     (err) => console.log(err)
     );
